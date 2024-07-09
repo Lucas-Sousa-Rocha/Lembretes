@@ -22,7 +22,7 @@ public class Lembretes {
 	@Column(nullable = false, length = 15)
 	private String status;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	//@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(nullable = false)
 	private Date data;
 

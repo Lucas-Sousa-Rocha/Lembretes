@@ -53,10 +53,10 @@ public class LembreteCotroller {
  		return mv;
 	}*/
 
-	@DeleteMapping(path = "/excluir/{id}")
+	/*@DeleteMapping(path = "/excluir/{id}")
     public void excluirProduto(@PathVariable int id){
     	lembreteRepository.deleteById(id);
-    }
+    }*/
 
 	/*@GetMapping("/ver")
 	public String pagever(){
