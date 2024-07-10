@@ -2,16 +2,15 @@ package com.lembretes.Lembretes.Models.Entities;
 
 import java.sql.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "TBL_LEM")
 public class Lembretes {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@Column(nullable = false, length = 50)
 	private String titulo;
@@ -22,27 +21,24 @@ public class Lembretes {
 	@Column(nullable = false, length = 15)
 	private String status;
 
-	//@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Column(nullable = false)
 	private Date data;
 
-	public Lembretes() {
-		super();
-	}
-
 	public Lembretes(String titulo, String observacao, String status, Date data) {
-		super();
 		this.titulo = titulo;
 		this.observacao = observacao;
 		this.status = status;
 		this.data = data;
 	}
 
-	public int getId() {
+	public Lembretes() {
+		super();
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
