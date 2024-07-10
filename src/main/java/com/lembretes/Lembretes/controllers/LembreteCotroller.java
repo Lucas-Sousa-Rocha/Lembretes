@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,14 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.lembretes.Lembretes.Models.Entities.Lembretes;
 import com.lembretes.Lembretes.Models.Repositories.LembreteRepository;
-import com.lembretes.Lembretes.Models.Services.lembreteService;
 
 @Controller
 public class LembreteCotroller {
 
 	@Autowired
 	LembreteRepository lembreteRepository;
-	lembreteService lembreteService;
+
+	@GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
 	@GetMapping("/home")
 	public String home() {
 		return "index";
@@ -33,9 +36,9 @@ public class LembreteCotroller {
 	}
 
 	@PostMapping(path = "/cadastro")
-	public /* @ResponseBody */ String salvarLembrete(/* @Valid */ Lembretes lembrete) {
+	public String salvarLembrete( Lembretes lembrete) {
 		lembreteRepository.save(lembrete);
-		return "redirect:/home";
+		return "redirect:/ver";
 	}
 
 	@RequestMapping("/ver")
@@ -61,22 +64,8 @@ public class LembreteCotroller {
 		mv.addObject("lembretes", lembretes);
 		return mv;
 	}
-	/* --------------------------------------------------------------- */
 
-	@GetMapping("/excluir/{id}")
-	 public String GetLembrete(@PathVariable("id") Long id) {
-        Optional<Lembretes> optionalLembrete = lembreteRepository.findById(id);
-		if (optionalLembrete.isPresent()){
-			lembreteRepository.deleteById(id);
-			return "redirect:/home";
-		}else {
-			return "redirect:/home";
-		}
-		//LembreteRepository.deleteById(id);
-        //return "redirect:/verlembretes";  // Redirecionar para a lista após deletar
-    }
-
-	  @DeleteMapping("/excluir/{id}")
+	/*@DeleteMapping("/excluir/{id}")
 	 public String deletarLembrete(@PathVariable("id") Long id) {
         Optional<Lembretes> optionalLembrete = lembreteRepository.findById(id);
 		if (optionalLembrete.isPresent()){
@@ -84,6 +73,18 @@ public class LembreteCotroller {
 			return "redirect:/home";
 		}else {
 			return "redirect:/home";
+		}
+    }*/
+	/* ------------------------------testes--------------------------------- */
+
+	@GetMapping("/excluir/{id}")
+	 public String GetLembrete(@PathVariable("id") Long id) {
+        Optional<Lembretes> optionalLembrete = lembreteRepository.findById(id);
+		if (optionalLembrete.isPresent()){
+			lembreteRepository.deleteById(id);
+			return "redirect:/ver";
+		}else {
+			return "redirect:/ver";
 		}
 		//LembreteRepository.deleteById(id);
         //return "redirect:/verlembretes";  // Redirecionar para a lista após deletar

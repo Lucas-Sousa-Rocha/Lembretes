@@ -77,26 +77,28 @@
                 <tr>
                     <th>Ticket</th>
                     <th>Titulo</th>
-                  <!--  <th>Observação</th> -->
+                    <!--  <th>Observação</th> -->
                     <th>Status</th>
                     <th>Data</th>
                     <th>Ações</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="lembrete : ${lembretes}" >
+                <tr th:each="lembrete : ${lembretes}">
                     <td th:text="${lembrete.id}"></td>
                     <td th:text="${lembrete.titulo}"></td>
-                <!--    <td th:text="${lembrete.observacao}"></td> -->
+                    <!--    <td th:text="${lembrete.observacao}"></td> -->
                     <td th:text="${lembrete.status}"></td>
                     <td th:text="${#dates.format(lembrete.Data, 'dd-MMM-yyyy')}"></td>
                     <!--   <td th:text="${lembrete.data}"></td> -->
                     <td>
                         <a th:href="@{/editar/{id}(id=${lembrete.id})}" class="btn edit">Editar</a>
-                    <!--    <a th:href="@{/excluir/{id}(id=${lembrete.id})}" 
-                        th:data-confirm-delete="|Você gostaria de apagar o seguinte lembrete : ${lembrete.titulo}?|"
-                        onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"class="btn delete">Excluir</a>-->
-                        <a th:href="@{/excluir/{id}(id=${lembrete.id})}" class="btn delete">Excluir</a>
+                        <a th:href="@{/excluir/{id}(id=${lembrete.id})}"
+                            th:data-confirm-delete="|Você gostaria de apagar o seguinte lembrete : ${lembrete.titulo}?|"
+                            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                            class="btn delete">Excluir</a>
+                        <!--    <a th:href="@{/excluir/{id}(id=${lembrete.id})}" class="btn delete">Excluir</a> -->
                         <a th:href="@{/vizualizacao/{id}(id=${lembrete.id})}" class="btn ver">Ver Observação</a>
                     </td>
                 </tr>
