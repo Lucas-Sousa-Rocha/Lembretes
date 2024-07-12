@@ -19,10 +19,7 @@ public class LembreteCotroller {
 	@Autowired
 	LembreteRepository lembreteRepository;
 
-	@GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+	
 
 	@GetMapping("/home")
 	public String home() {

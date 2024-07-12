@@ -8,8 +8,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #c705a7;
+    color: rgb(255, 255, 255);
 }
 .header .logo {
     font-size: 1.5em;
@@ -22,21 +22,21 @@ body {
 }
 .menu {
     width: 200px;
-    background-color: #f4f4f4;
+    background-color: #797979;
     padding: 20px;
     height: 100vh;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    /*box-shadow: 2px 0 5px rgb(255, 255, 255);*/
 }
 .menu a {
     display: block;
     padding: 10px 0;
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 10px;
     cursor: pointer;
 }
 .menu a:hover {
-    background-color: #ddd;
+    background-color: #292929;
 }
 .content {
     flex-grow: 1;
