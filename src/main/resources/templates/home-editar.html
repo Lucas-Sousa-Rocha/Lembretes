@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Tickets.com</div>
+        <div class="user-name"></div>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/home-cadastro}">Criar Ticket</a>
+        <!--    <a th:href="@{/cadastro}">Criar Lembrete</a> -->
+        <!--    <a th:href="@{/ver}">Ver Lembretes</a> -->
+            <a th:href="@{/home-verlembretes}">Ver Lembretes (Teste)</a>
+            <a th:href="@{/home-cadastrostatus}">Cadastrar Status</a>
+            <a th:href="@{/home-verstatus}">Ver Status cadastrado</a>
+        </div>
+        <div class="content">
+            <h1>Editar Lembrete</h1>
+        <form action="/home-cadastro" method="POST" th:object="${lembretes}">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo"  th:field="*{titulo}">
+            </div> 
+            <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea id="observacao" name="observacao" rows="4" th:field="*{observacao}"></textarea>
+            </div>
+            <!-- <div class="form-group">
+                <label for="titulo">Status:</label>
+                <input type="text" id="titulo" name="status" required>
+            </div> -->
+            <div class="form-group">
+                <label for="data" >Data:</label>
+                <input type="date" id="data" name="data" th:field="*{data}">
+            </div>
+            <div>
+                <label for="titulo" class="form-group">Status:</label><br>
+
+                <select name="status">
+                    <option th:each="status : ${status}" th:value="${status.nome}" th:text="${status.nome}" >
+                </select>
+                <br><br>
+            </div>
+            <div class="form-group">
+                <input type="submit">
+            </div>
+        </form>
+            
+        </div>
+    </div>
+</body>
+</html>

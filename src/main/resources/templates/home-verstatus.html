@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Tickets.com</div>
+        <div class="user-name"></div>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/home-cadastro}">Criar Ticket</a>
+        <!--    <a th:href="@{/cadastro}">Criar Lembrete</a> -->
+        <!--    <a th:href="@{/ver}">Ver Lembretes</a> -->
+            <a th:href="@{/home-verlembretes}">Visualizar Tickets</a>
+            <a th:href="@{/home-cadastrostatus}">Cadastrar Status</a>
+            <a th:href="@{/home-verstatus}">Ver Status cadastrado</a>
+        </div>
+        <div class="content">
+            <h2>Lista de Lembretes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <!--  <th>Observação</th> -->
+                    <th>Status</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="status : ${status}">
+                    <td th:text="${status.id}"></td>
+                    <td th:text="${status.nome}"></td>
+                    <!--    <td th:text="${lembrete.observacao}"></td> -->
+                    <td th:text="${status.situacao}"></td>
+                </tr>
+            </tbody>
+        </table>
+            
+        </div>
+    </div>
+</body>
+</html>
