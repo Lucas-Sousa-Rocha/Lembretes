@@ -67,11 +67,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>br.curso.spring</groupId>
-			<artifactId>cursospring</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 	
    
  
