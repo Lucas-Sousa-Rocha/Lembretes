@@ -22,26 +22,36 @@
             <a th:href="@{/home-verstatus}">Ver Status cadastrado</a>
         </div>
         <div class="content">
-            <h2>Lista de Lembretes</h2>
+            <h2>Lista de Status Cadastrado</h2>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                <!--    <th>ID</th> -->
                     <th>Titulo</th>
                     <!--  <th>Observação</th> -->
-                    <th>Status</th>                    
+                    <th>Status</th>
+                    <th>Ações</th>                    
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="status : ${status}">
-                    <td th:text="${status.id}"></td>
+                <!--    <td th:text="${status.id}"></td> -->
                     <td th:text="${status.nome}"></td>
                     <!--    <td th:text="${lembrete.observacao}"></td> -->
                     <td th:text="${status.situacao}"></td>
+                    <td>
+                        <a th:href="@{/home-editarstatus/{id}(id=${status.id})}" class="btn edit">Editar</a>
+                        <a th:href="@{/excluirstatus/{id}(id=${status.id})}"
+                            th:data-confirm-delete="|Você gostaria de apagar o seguinte status : ${status.nome}?|"
+                            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                            class="btn delete">Excluir</a>
+                        <!--    <a th:href="@{/excluir/{id}(id=${lembrete.id})}" class="btn delete">Excluir</a> -->
+                    </td>
                 </tr>
             </tbody>
         </table>
-            
+        <br>
+        <a th:href="@{/home}" class="btn ver">Voltar</a>    
         </div>
     </div>
 </body>

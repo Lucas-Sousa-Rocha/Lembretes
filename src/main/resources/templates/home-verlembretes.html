@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
+
+    <!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> 
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script> 
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script> 
+    -->
+    
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/JavaScript.js"></script>
 </head>
+
 <body>
     <div class="header">
         <div class="logo">Tickets.com</div>
@@ -15,48 +27,58 @@
         <div class="menu">
             <a th:href="@{/home}">Home</a>
             <a th:href="@{/home-cadastro}">Criar Ticket</a>
-        <!--    <a th:href="@{/cadastro}">Criar Lembrete</a> -->
-        <!--    <a th:href="@{/ver}">Ver Lembretes</a> -->
+            <!--    <a th:href="@{/cadastro}">Criar Lembrete</a> -->
+            <!--    <a th:href="@{/ver}">Ver Lembretes</a> -->
             <a th:href="@{/home-verlembretes}">Visualizar Tickets</a>
             <a th:href="@{/home-cadastrostatus}">Cadastrar Status</a>
             <a th:href="@{/home-verstatus}">Ver Status cadastrado</a>
         </div>
         <div class="content">
-            <h2>Lista de Lembretes</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Ticket</th>
-                    <th>Titulo</th>
-                    <!--  <th>Observação</th> -->
-                    <th>Status</th>
-                    <th>Data</th>
-                    <th>Ações</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="lembrete : ${lembretes}">
-                    <td th:text="${lembrete.id}"></td>
-                    <td th:text="${lembrete.titulo}"></td>
-                    <!--    <td th:text="${lembrete.observacao}"></td> -->
-                    <td th:text="${lembrete.status}"></td>
-                    <td th:text="${#dates.format(lembrete.Data, 'dd-MMM-yyyy')}"></td>
-                    <!--   <td th:text="${lembrete.data}"></td> -->
-                    <td>
-                        <a th:href="@{/home-editar/{id}(id=${lembrete.id})}" class="btn edit">Editar</a>
-                        <a th:href="@{/excluir/{id}(id=${lembrete.id})}"
-                            th:data-confirm-delete="|Você gostaria de apagar o seguinte lembrete : ${lembrete.titulo}?|"
-                            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
-                            class="btn delete">Excluir</a>
-                        <!--    <a th:href="@{/excluir/{id}(id=${lembrete.id})}" class="btn delete">Excluir</a> -->
-                        <a th:href="@{/home-verobservacao/{id}(id=${lembrete.id})}" class="btn ver">Ver Observação</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-            
+            <h1>Pesquisa em Tabela</h1>
+            <input type="text" id="searchInput" placeholder="Pesquisar..." onkeyup="filterTable()">
+            <h2>Tickets:</h2>
+            <!-- <th><a th:href="@{/home-cadastro}" class="btn ver">Criar Ticket</a></th>-->
+
+            <table class="table table-borderless">
+
+                <thead>
+                    <br>
+                    <tr>
+                        <th scope="col">Ticket</th>
+                        <th>Titulo</th>
+                        <!--  <th>Observação</th> -->
+                        <th>Status</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr th:each="lembrete : ${lembretes}">
+                        <td th:text="${lembrete.id}"></td>
+                        <td th:text="${lembrete.titulo}"></td>
+                        <!--    <td th:text="${lembrete.observacao}"></td> -->
+                        <td th:text="${lembrete.status}"></td>
+                        <td th:text="${#dates.format(lembrete.Data, 'dd-MMM-yyyy')}"></td>
+                        <!--   <td th:text="${lembrete.data}"></td> -->
+                        <td>
+                            <a th:href="@{/home-editar/{id}(id=${lembrete.id})}" class="btn edit">Editar</a>
+                            <a th:href="@{/excluir/{id}(id=${lembrete.id})}"
+                                th:data-confirm-delete="|Você gostaria de apagar o seguinte lembrete : ${lembrete.titulo}?|"
+                                onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                                class="btn delete">Excluir</a>
+                            <!--    <a th:href="@{/excluir/{id}(id=${lembrete.id})}" class="btn delete">Excluir</a> -->
+                            <a th:href="@{/home-verobservacao/{id}(id=${lembrete.id})}" class="btn ver">Ver
+                                Observação</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <a th:href="@{/home}" class="btn ver">Voltar</a>
         </div>
     </div>
+
 </body>
+
 </html>

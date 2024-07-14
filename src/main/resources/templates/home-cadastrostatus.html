@@ -30,17 +30,6 @@
                     <label for="titulo">Título:</label><br>
                     <input type="text" id="titulo" name="nome" required>
                 </div>
-                
-                <!--   <div>
-                <label for="titulo" >Situação:</label><br><br>
-
-                <input type="radio" name="situacao" value="Ativo" required>
-                <label>Ativo</label>
-
-                <input type="radio"  name="situacao" value="Desativado" required>
-                <label>Desativado</label><br><br>
-            </div>-->
-
                 <br>
                 <label for="titulo">Situação:</label><br><br>
                 <div class="radio-group">
@@ -50,10 +39,13 @@
 
                     <input type="radio" id="option2" name="situacao" value="Desativado" required>
                     <label for="option2" class="red">Desativado</label>
+                    <br>
+
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <input type="submit">
+                    <input type="submit"> 
+                    <a th:href="@{/home}" class="btn ver">Voltar</a>
                 </div>
             </form>
 

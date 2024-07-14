@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -11,22 +12,19 @@ body {
     background-color: #c705a7;
     color: rgb(255, 255, 255);
 }
-.header .logo {
-    font-size: 1.5em;
-}
-.header .user-name {
-    font-size: 1.2em;
-}
+
 .container {
     display: flex;
 }
+
 .menu {
-    width: 200px;
-    background-color: #797979;
+    width: 100px;
+    background-color: #777777;
     padding: 20px;
     height: 100vh;
     /*box-shadow: 2px 0 5px rgb(255, 255, 255);*/
 }
+
 .menu a {
     display: block;
     padding: 10px 0;
@@ -35,25 +33,58 @@ body {
     margin-bottom: 10px;
     cursor: pointer;
 }
+
 .menu a:hover {
-    background-color: #292929;
+    /*background-color: #292929;
+    margin-bottom: 10px;
+    /*definimos a largura do box*/
+    /*width:70px;
+	/* definimos a altura do box */
+    /*height:50px;
+	/* definimos a cor de fundo do box */
+    /*background-color: #5e5555;
+    /* definimos o quão arredondado irá ficar nosso box */
+    /*border-radius: 10px;*/
+    /*margin-right: 10px;
+    transition: 0.5s;
+    opacity: 0.7;
+    transition: all .5s;
+    border: 1px solid transparent;
+    border: 5px solid #e0e0e0;
+    border-radius: 50%;*/
+    /*position:relative top:-2px;
+    box-shadow: 0 2px 2px #666*/
+    border-radius: 10px;
+    position:relative;
+    /*padding:4px;*/
+    background: color #666;top:1px;box-shadow:0 2px 2px #c705a7
+    
 }
+
 .content {
     flex-grow: 1;
     padding: 20px;
 }
-.form-container, .message-container {
+
+.form-container,
+.message-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.form-container h2, .message-container h2 {
+
+.form-container h2,
+.message-container h2 {
     margin-top: 0;
 }
-input[type="text"], textarea, select {
-   /* width: 70%;*/
-    width: 500px;/* Largura da caixa de texto */
+
+input[type="text"],
+textarea,
+select {
+    /* width: 70%;*/
+    width: 500px;
+    /* Largura da caixa de texto */
     height: 35px;
     padding: 8px;
     margin: 6px 0;
@@ -61,6 +92,7 @@ input[type="text"], textarea, select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 input[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -69,27 +101,35 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
+
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
 table {
-    width: 100%;
+    width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-table, th, td {
+
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
-th, td {
-    padding: 8px;
+
+th,
+td {
+    padding: 5px;
     text-align: left;
 }
+
 th {
     background-color: #ffffff;
 }
 
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
     margin-top: 20px;
 
@@ -132,20 +172,27 @@ th {
 
 
 .caixa-texto {
-    width: 500px;  /* Largura da caixa de texto */
-    height: 200px; /* Altura da caixa de texto */
-    resize: none;  /* Impede o redimensionamento */
+    width: 500px;
+    /* Largura da caixa de texto */
+    height: 200px;
+    /* Altura da caixa de texto */
+    resize: none;
+    /* Impede o redimensionamento */
 }
 
 
 textarea {
-    width: 500px;  /* Largura da caixa de texto */
-    height: 200px; /* Altura da caixa de texto */
-    resize: none;  /* Impede o redimensionamento */
+    width: 500px;
+    /* Largura da caixa de texto */
+    height: 200px;
+    /* Altura da caixa de texto */
+    resize: none;
+    /* Impede o redimensionamento */
 }
 
 .radio-group input[type="radio"] {
-    display: none; /* Esconde os inputs de rádio */
+    display: none;
+    /* Esconde os inputs de rádio */
 }
 
 .radio-group label {
@@ -156,12 +203,12 @@ textarea {
 }
 
 /* Estilo para quando o input de rádio está selecionado */
-.radio-group input[type="radio"]:checked + label.green {
+.radio-group input[type="radio"]:checked+label.green {
     background-color: green;
     color: white;
 }
 
-.radio-group input[type="radio"]:checked + label.red {
+.radio-group input[type="radio"]:checked+label.red {
     background-color: red;
     color: white;
 }

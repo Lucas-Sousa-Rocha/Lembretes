@@ -7,4 +7,6 @@ import com.lembretes.Lembretes.Models.Entities.Status;
 @Repository
 public interface StatusRepository extends JpaRepository <Status,Long> {
 
+    Iterable<Status> findBySituacao(String situacao);
+
 }

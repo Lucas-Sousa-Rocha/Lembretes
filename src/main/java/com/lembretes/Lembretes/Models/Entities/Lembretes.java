@@ -18,7 +18,7 @@ public class Lembretes {
 	@Column(length = 250)
 	private String observacao;
 
-	@Column(nullable = false, length = 15)
+	@Column(nullable = false, length = 50)
 	private String status;
 
 	private Date data;

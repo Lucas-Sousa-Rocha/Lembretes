@@ -22,7 +22,7 @@
             <a th:href="@{/home-verstatus}">Ver Status cadastrado</a>
         </div>
         <div class="content">
-            <h1>Ticket</h1>
+            <h1>Criar Ticket</h1>
         <form action="/home-cadastro" method="POST">
             <div class="form-group">
                 <label for="titulo">Título:</label><br>
@@ -40,6 +40,7 @@
                 <label for="data">Data a ser realizada:</label>
                 <input type="date" id="data" name="data" required>
             </div>
+            <br>
             <div>
                 <label for="titulo" class="form-group">Status:</label><br>
 
@@ -49,8 +50,10 @@
                 <br><br>
             </div>
             <div class="form-group">
-                <input type="submit" name="Cadastrar">
+                <input type="submit" name="Cadastrar">  <a th:href="@{/home}" class="btn ver">Voltar</a>
             </div>
+            <br>
+            
         </form>
             
         </div>
