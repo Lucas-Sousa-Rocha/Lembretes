@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.lembretes.Lembretes.Models.Entities.Lembretes;
 import com.lembretes.Lembretes.Models.Entities.Status;
@@ -46,13 +47,31 @@ public class LembreteCotroller {
 		return "redirect:/home-verlembretes";
 	}
 
-	@RequestMapping("/home-verlembretes")
+	@GetMapping("/home-verlembretes")
 	public ModelAndView ver() {
 		ModelAndView mv = new ModelAndView("home-verlembretes");
 		Iterable<Lembretes> lembretes = lembreteRepository.findAll();
 		mv.addObject("lembretes", lembretes);
 		return mv;
 	}
+
+	@PostMapping(path = "/home-verlembretes{titulo}")
+    public ModelAndView obterProdutosPorNome(@RequestParam(name = "titulo") String titulo) {
+		ModelAndView mv = new ModelAndView("home-verlembretes");
+		Iterable<Lembretes> lembretes = lembreteRepository.findBytitulo(titulo);
+		//Iterable<Lembretes> lembretes = lembreteRepository.findAll();
+		mv.addObject("lembretes", lembretes);
+    	//return produtoRepository.findByNomeContainingIgnoreCase(parteNome);
+    	return mv;
+    }
+	/*@PostMapping("/home-verlembretes")
+	public ModelAndView pesquisarPorTitulo(@RequestParam("nomepesquisa") String nomepesquisa) {
+		ModelAndView mv = new ModelAndView("home-pesquisar");
+		Iterable<Lembretes> lembretes = lembreteRepository.findBytitulo(nomepesquisa);
+		mv.addObject("lembretes", lembretes);
+		mv.addObject("lembretesobj", new Lembretes());
+		return mv;
+	}*/
 
 	@RequestMapping("/home-verobservacao/{id}")
 	public ModelAndView vizualizacao( @PathVariable("id") Long id) {
